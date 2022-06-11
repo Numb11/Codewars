@@ -1,0 +1,16 @@
+import operator
+
+
+def top_3_words(text):
+    text = text.split()
+    x = []
+    values = {}
+    for i in text:
+        if not i in x:
+          x.append(i)
+    for i in x:
+        values.update({i:text.count(i)})
+    for i in sorted(values.items(), key=operator.itemgetter(1),reverse = True):
+        if len(x)<3:
+          x.append(i[0])
+    return(values)
